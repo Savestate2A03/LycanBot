@@ -2,13 +2,17 @@ import discord
 from datetime import datetime
 from discord.ext import commands
 
+# Creates a pretty embed containign a link to this bot's source code
 class Source(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
+    # Add hybrid_command (so it's registered as an app command)
     @commands.hybrid_command()
     async def source(self, ctx):
+        # Use the bot's own information to fill in name info
         info = await self.bot.application_info()
+        # Generate embed (thanks to https://embed.dan.onl/)
         embed = discord.Embed(title=f"{info.name} on GitHub",
                               url="https://github.com/Savestate2A03/LycanBot",
                               description="A Discord Development bot by Rei Wolf (ie. Savestate) to test out the functionality of Slash commands. \n\nThis bot is in **active development** and contains several extensions that do various things, generally whatever Rei is hyperfixating on at the moment.\n\nDo note that loading and unloading extensions is limited to _Rei only_!",
