@@ -16,5 +16,5 @@ class LycanBot(commands.Cog):
                 print(e)
 
 async def setup(bot):
-    await bot.add_cog(LycanBot(bot), guild=1263261495853056030)
-    await bot.load_extension('LycanBot.commands.bark')
+    await bot.add_cog(LycanBot(bot))
+    await bot.load_extension('LycanBot.commands.reloader')

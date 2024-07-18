@@ -9,7 +9,7 @@ class Bark(commands.Cog):
     async def bark(self, ctx, *, member: discord.Member = None):
         """Says hello"""
         member = member or ctx.author
-        await ctx.send(f'arrruf !! hi {member.name} !!!')
+        await ctx.send(f'arrruf !! hi {member.name} !!!!')
 
 async def setup(bot):
-    await bot.add_cog(Bark(bot), guild=1263261495853056030)
+    await bot.add_cog(Bark(bot))
