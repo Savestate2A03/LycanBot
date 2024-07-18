@@ -6,8 +6,8 @@ __pycache__/
 # C extensions
 *.so
 
-# Discord Token
-token.txt
+# Discord Settings
+settings.ini
 
 # Distribution / packaging
 .Python
