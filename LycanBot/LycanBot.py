@@ -18,3 +18,4 @@ class LycanBot(commands.Cog):
 async def setup(bot):
     await bot.add_cog(LycanBot(bot))
     await bot.load_extension('LycanBot.commands.reloader')
+    await bot.load_extension('LycanBot.commands.source')

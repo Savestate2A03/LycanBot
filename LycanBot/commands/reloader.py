@@ -1,12 +1,16 @@
 from discord.ext import commands
+from discord import app_commands
+import discord
 
 class Reloader(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
-    
-    @commands.is_owner()
+
     @commands.hybrid_command()
     async def load_extension(self, ctx, *, extension):
+        if not await self.bot.is_owner(ctx.author): 
+            await ctx.send(f'HEY ... ur not the owner . sorry bud !!')
+            return
         try:
             await self.bot.load_extension('LycanBot.commands.' + extension)
             await ctx.send(f'YAY omg .. loaded {extension} !!! ARF')
@@ -25,9 +29,11 @@ class Reloader(commands.Cog):
         except discord.ext.commands.ExtensionFailed:
             await ctx.send(f'UM.. {extension} .. it EXPLODED !!!!!')
 
-    @commands.is_owner()
     @commands.hybrid_command()
     async def reload_extension(self, ctx, *, extension):
+        if not await self.bot.is_owner(ctx.author): 
+            await ctx.send(f'HEY ... ur not the owner . sorry bud !!')            
+            return
         try:
             await self.bot.reload_extension('LycanBot.commands.' + extension)
             await ctx.send(f'arf arf :3 reloaded {extension} !!! wruf.,')
@@ -46,9 +52,11 @@ class Reloader(commands.Cog):
         except discord.ext.commands.ExtensionFailed:
             await ctx.send(f'UM.. {extension} .. it EXPLODED !!!!!')
 
-    @commands.is_owner()
     @commands.hybrid_command()
     async def unload_extension(self, ctx, *, extension):
+        if not await self.bot.is_owner(ctx.author): 
+            await ctx.send(f'HEY ... ur not the owner . sorry bud !!')            
+            return
         try:
             await self.bot.unload_extension('LycanBot.commands.' + extension)
             await ctx.send(f'arf arf >< unloaded {extension} !!! awooo')
